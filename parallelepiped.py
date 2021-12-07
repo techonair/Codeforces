@@ -1,13 +1,9 @@
-area = list(int(i) for i in input().split())
+import math
 
-sum = 0
+s1, s2, s3 = input().split()
 
-for i in area:
-    if i == min(area):
-        sum += i*4
-    else:
-        sum += i
+a = math.sqrt(int(s1) * int(s3) / int(s2))
+b = math.sqrt(int(s1) * int(s2) / int(s3))
+c = math.sqrt(int(s3) * int(s2) / int(s1))
 
-print(sum)
-
-# Solution is not right
+print(int(4*(a+b+c)))

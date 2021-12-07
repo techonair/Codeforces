@@ -2,18 +2,20 @@ n = int(input())
 
 soldiers = list(int(i) for i in input().split())
 
-rec_1 = 0
-rec_2 = 0
-min = 1000
+# the difference of first and last 
+diff = abs(soldiers[0]- soldiers[n-1])
+rec_1 = n # last element 
+rec_2 = 1 # first element
 
-for s in range(len(soldiers)):
+m = 1001
+minimum = min(m, diff)
 
-    z = s+1
-    if z< len(soldiers):
-        diff = soldiers[s] - soldiers[z]
-        if diff <= min and diff >= 0:
-            rec_1 = s+1
-            rec_2 = z+1
-            min = diff
+for s in range(len(soldiers)-1):
+    diff = abs(soldiers[s] - soldiers[s+1])
+    
+    if diff<= minimum:
+        minimum = diff
+        rec_1 = s+2
+        rec_2 = s+1
 
 print(rec_1, rec_2)
