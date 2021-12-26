@@ -1,5 +1,5 @@
 """
-# My personal comment:
+# Personal comment:
 # I submitted out the solution and got a runtime error on 'Test 8 for 1000'
 # I was unaware that python has a recursion limit to avoid stack overflow
 # The default limit is approximately 10^3. (However I was personally able to go till 998)
@@ -22,7 +22,7 @@ sys.setrecursionlimit(10**4)
 n = int(input())
 
 a = []
-# swap
+
 for i in range(1,n+1):
     a.append(i)
 
@@ -35,6 +35,7 @@ def f(x):
     else:
         f(x-1)
 
+    # swap
     for i in range(len(a)):
         if i > 0:
             s = a[i-1]
@@ -44,3 +45,13 @@ def f(x):
 f(n)
 for i in a:
     print(i, end = ' ')
+
+# _____-____________-____________-____________-____________-_____________
+
+# Short code for the same problem
+"""
+n = int(input())
+print(n, end = ' ')
+for i in range(1,n):
+    print(i, end = ' ')
+"""
