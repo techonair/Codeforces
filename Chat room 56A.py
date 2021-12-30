@@ -17,13 +17,16 @@ for i in vasya:
 
 if ans == 'YES':
     H = vasya.index('h')
-    E = vasya.index('e')
-    L = vasya.index('l')
+
+if ans == 'YES':
+    H = vasya.index('h')
+    E = vasya.index('e', H+1, len(vasya))
+    L = vasya.index('l', E+1, len(vasya))
 
     if l_count > 1:
         L2 = vasya.index('l', L+1, len(vasya))
 
-    O = vasya.index('o')
+    O = vasya.index('o', L2+1, len(vasya))
     
 
 print(H, E, L, L2, O)

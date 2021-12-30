@@ -1,8 +1,8 @@
 n = int(input())
- 
+
 for i in range(n*2 + 1):
     space = n - i
-    # no space in middle most line, space = n - n = 0
+    # no space in n/2 or middle most line of whole pattern in vertical, space = n - n = 0
     # after middle most line increasing spaces
     if space < 0:
         space = -space
