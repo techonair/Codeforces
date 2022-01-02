@@ -10,6 +10,7 @@ if n > 1:
         if num not in uni:
             uni.append(num)
             for j in range(i+1, n):
+                print('J',s[j])
                 if j == n-1:
                     print(num, 0)
                     break
@@ -18,5 +19,4 @@ if n > 1:
                     break
 else:
     print(s[0], 0)
-        
         
