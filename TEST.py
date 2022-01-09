@@ -1,19 +1,34 @@
-import itertools
+n, k = map(int, input().split())
 
-happy = []
+seq = [int(i) for i in input().split()]
 
-happy_sum = 0
+kth = seq[k-1]
+flag = False
 
-per = [list(i) for i in itertools.permutations([0, 1, 2 , 3, 4], 5)]
+if n > 1:
 
-for i in range(5):
-    happy.append([int(i) for i in input().split()])
+    for i in range(k-1, n):
+        if seq[i] == kth:
+            flag = True
+        else:
+            flag = False
+            break
+else:
+    flag = True
 
-for i in range(len(per)):
-    temp = (happy[per[i][0]][per[i][1]]+happy[per[i][1]][per[i][0]])*1\
-            + (happy[per[i][1]][per[i][2]]+happy[per[i][2]][per[i][1]])*1\
-            + (happy[per[i][2]][per[i][3]]+happy[per[i][3]][per[i][2]])*2\
-            + (happy[per[i][3]][per[i][4]]+happy[per[i][4]][per[i][3]])*2
-    happy_sum = max(happy_sum, temp)
+temp = 0
 
-print(happy_sum)
+if flag:
+    if n > 1:
+        for i in range(k-1, -1, -1):
+            if seq[i] == kth:
+                temp = i
+                continue
+            else:
+                break
+        print(temp)
+    else:
+        print(temp)
+    
+else:
+    print(-1)
