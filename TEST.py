@@ -1,14 +1,19 @@
-n = int(input())
+import itertools
 
-s = [int(i) for i in input().split()]
-d = {}
-for i in range(n):
-    a = s[i]
-    if a not in d:
-        d[a] = (i,0)
-    else:
-        d[a] = (i, -1 if d[a][1] and i - d[a][0] != d[a][1] else i - d[a][0])
-b = [(i,d[i][1]) for i in sorted(d.keys()) if d[i][1] >= 0]
-print(len(b))
-for i in b:
-    print(i[0],i[1])
+happy = []
+
+happy_sum = 0
+
+per = [list(i) for i in itertools.permutations([0, 1, 2 , 3, 4], 5)]
+
+for i in range(5):
+    happy.append([int(i) for i in input().split()])
+
+for i in range(len(per)):
+    temp = (happy[per[i][0]][per[i][1]]+happy[per[i][1]][per[i][0]])*1\
+            + (happy[per[i][1]][per[i][2]]+happy[per[i][2]][per[i][1]])*1\
+            + (happy[per[i][2]][per[i][3]]+happy[per[i][3]][per[i][2]])*2\
+            + (happy[per[i][3]][per[i][4]]+happy[per[i][4]][per[i][3]])*2
+    happy_sum = max(happy_sum, temp)
+
+print(happy_sum)
