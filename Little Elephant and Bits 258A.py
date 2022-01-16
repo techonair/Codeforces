@@ -6,8 +6,10 @@ for i in range(n):
     if bit[i] == '0':
         bit = bit[0:i] + bit[i + 1:]
         break
+
 if len(bit) == n:
     bit = bit[1:]
+    
 print(bit)
 
 """
