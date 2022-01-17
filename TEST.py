@@ -1,18 +1,20 @@
 n, k = map(int, input().split())
 
-arr = [int(i) for i in input().split()]
+correct = [int(i) for i in input().split()]
+wrong = [int(i) for i in input().split()]
 
-first = 0
+min_wrong = min(wrong)
 
-for i in range(k):
-    first += arr[i]
+correct.sort()
+min_correct = 2 * correct[0]
+tl = correct[len(correct)-1]
 
-window = first
-j = 1
-for i in range(1, n-k+1):
-    first = first - arr[i-1] + arr[i-1+k]
-    if first < window:
-        window = first
-        j = i+1
+flag = False
 
-print(j)
+if len(correct)== 1 or (min_correct > tl and min_correct < min_wrong):
+    tl = min_correct
+
+if min_correct <= tl and tl < min_wrong:
+    print(tl)
+else:
+    print(-1)
