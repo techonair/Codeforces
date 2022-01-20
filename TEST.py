@@ -1,13 +1,5 @@
-y, k, n = map(int,input().split())
+string = "BGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGBGGGGGGGGGGG"
 
-flag = False
+b = string.count('B')
 
-x = k - (y%k)
-
-while x+y <= n:
-    flag = True
-    print(x, end=' ')
-    x += k
-    
-if not flag:
-    print(-1)
+print(b)
