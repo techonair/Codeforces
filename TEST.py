@@ -1,16 +1,24 @@
-a,b,c = map(int,input().split())
+INPUT = open('input.txt', 'r')
+OUTPUT = open('output.txt', 'w')
 
-lis=[0]*(1000001)
+n = int(INPUT.readline())
 
-for i in range(1,1000001):
-    j=i
-    while j<=1000000:
-        lis[j]+=1
-        j+=i
-ans=0    
-for i in range(1,a+1):
-    for j in range(1,b+1):
-        for k in range(1,c+1):
-            ans+=(lis[i*j*k]%1073741824)
-print(ans)            
- 
+arr = [int(i)for i in INPUT.readline().split()]
+
+s = [[] for _ in range(5000)]
+
+for i in range(2*n):
+    s[arr[i]].append(i+1)
+
+flag = False
+
+for lists in s:
+    if lists != [] and len(lists) % 2 == 0:
+        for i in range(0, len(lists)-1):
+            flag = True
+            OUTPUT.write(str(lists[i])+' '+str(lists[i+1])+'\n')
+            break
+
+if not flag:
+    OUTPUT.write('-1')
+print(s)
