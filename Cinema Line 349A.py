@@ -14,19 +14,24 @@ for i in range(n):
     elif money[i] == '50':
         if twenty5 > 0:
             twenty5 -= 1
+            fifty += 1
         else:
             flag = False
             break
-        fifty += 1
     elif money[i] == '100':
-        if fifty > 0 and twenty5 > 0:
-            fifty -= 1
-            twenty5 -= 1
-        elif fifty == 0  and twenty5 > 1:
-            twenty5 -= 2
-        elif fifty >= 0 and twenty5 <= 1:
+        if fifty > 0 and twenty5 < 1:
             flag = False
             break
+        elif fifty == 0 and twenty5 <= 2:
+            flag = False
+            break
+        elif fifty == 0  and twenty5 > 2:
+            twenty5 -= 3
+            hundred += 1
+        elif fifty > 0 and twenty5 > 0:
+            fifty -= 1
+            twenty5 -= 1
+            hundred += 1
 
 if flag:
     print('YES')
