@@ -25,17 +25,19 @@ while (low <= high):
         high = m - 1
     elif arr[m][0] < key1:
         low = m + 1
-    elif arr[m][0] == key1:
+    elif arr[m][0] == key1 and arr[m][1] > key2:
+        high = m - 1
+    elif arr[m][0] == key1 and arr[m][1] < key2:
+        low = m + 1
+    elif arr[m][0] == key1 and arr[m][1] == key2:
         if (m != 0 and arr[m-1][0] != key1 and arr[m-1][1] != key2) or (m != 0 and arr[m-1][0] != key1 and arr[m-1][1] == key2):
             first_occurence = m
             break
         elif m == 0:
             first_occurence = m
             break
-        elif arr[m][0] == key1 and arr[m][1] > key2:
+        else:
             high = m - 1
-        elif arr[m][0] == key1 and arr[m][1] < key2:
-            low = m + 1
 
 low = first_occurence
 high = n-1
