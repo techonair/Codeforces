@@ -1,12 +1,10 @@
 """
-We count the total_ones in the array and total_zeros
-We will note the first_occurence of zero and last_occurence
-In between first_occurence and last occurence count number of ones (bt_ones)
-ans = last_occurence - first_occurence + total_ones - bt_ones + 1
-if total_ones != len(arr):
-    print(ans)
-elif total_zeros != 0:
-    print(total+1)
+Largest Sum Contiguous Subarray problem
+similar approach to "subsequence of maximal sum"
+better known as "Kadane's algorithm"
+but more suitable approach to this problem is 
+"Max Sum in Contiguous Subarray" or "Largest Sum Contiguous Subarray"
+algorithm can be found on GFG
 """
 
 n = int(input())
