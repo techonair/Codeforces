@@ -1,5 +1,29 @@
 n = int(input())
 
+idx = [0]*(n+1)
+
+arr = [int(i) for i in input().split()]
+
+m = int(input())
+
+quer = [int(i) for i in input().split()]
+
+for i in range(n):
+    idx[arr[i]] = i+1
+
+vasya = 0
+petya = 0
+for q in quer:
+    vasya += idx[q]
+    petya += n-idx[q]+1
+
+print(vasya, petya)
+
+# Time complexity of above code O(n+m)
+# Time complexity of below code O(n*m)
+"""
+n = int(input())
+
 arr = [int(i) for i in input().split()]
 
 m = int(input())
@@ -9,35 +33,18 @@ quer = [int(i) for i in input().split()]
 vasya = 0
 petya = 0
 
-trr = sorted(arr)
+idx = [0]*(n+1)
 
 for i in range(m):
-    # Binary Search begins
-    # variables needed for binary search
-    # -----------------
-    low = 0
-    high = n - 1
-    # -----------------
-    
-    while low <= high:
-        mid = (low + high)//2
-        
-        if quer[i] == trr[mid]:
-            index = mid
-            
-            for i in range(n):
-                if arr[i] == trr[mid]:
-                    index = i
+    if idx[quer[i]-1] != 0:
+        vasya += idx[quer[i]-1] + 1
+        petya += n - idx[quer[i]-1]
+    else:
+        for j in range(n):
+            if arr[j] == quer[i]:
+                idx[quer[i]-1] == j
+                vasya += j+1
+                petya += n-j
 
-            vasya += index + 1
-            petya += n - index
-
-            break
-
-        elif quer[i] > trr[mid]:
-            low = mid + 1
-            
-        elif quer[i] < trr[mid]:
-            high = mid - 1
-        
 print(vasya, petya)
+"""
