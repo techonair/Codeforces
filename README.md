@@ -1,6 +1,6 @@
 # Codeforces
 ## Codeforces Python Solutions 
-(By Bhanu Pratap, Codeforces: techonair)
+(By Bhanu Pratap, Codeforces: reinkarnation)
 ### A2 Online Judge
 
 Ladder Name: 11 - Codeforces Rating < 1300 (by ahmed_aly)
